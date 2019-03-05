@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 
 
-class BrowsePage extends Component {
+class NoMatch extends Component {
     render() {
         return (
             <div>
             <Navbar />
-            <h1>This is the Browsepage</h1>
+            <h1>404: NoMatch Page:</h1>
+            <h2>Route when user goes to a nonexistent page</h2>
             </div>
         )
     }
 }
 
-export default BrowsePage;
+export default NoMatch;

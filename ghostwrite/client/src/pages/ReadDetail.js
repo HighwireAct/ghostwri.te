@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 
 
-class BrowsePage extends Component {
+class ReadDetail extends Component {
     render() {
         return (
             <div>
             <Navbar />
-            <h1>This is the Browsepage</h1>
+            <h1>This is the ReadDetail Page:</h1>
+            <h3>Page to read individual stories that have been completed</h3>
             </div>
         )
     }
 }
 
-export default BrowsePage;
+export default ReadDetail;
