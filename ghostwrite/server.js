@@ -1,6 +1,11 @@
+import { createBlock } from "./client/utils/API";
+
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 8080;
+const mongoose = require("mongoose");
+const routeWrite = require("./routes/write");
+const routeRead = require("./routes/read");
 const app = express();
 
 // Define middleware here
@@ -11,12 +16,16 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("build/"));
 }
 
-// Define API routes here
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/writersblocks", { useNewUrlParser: true });
+
+app.use('/write', routeWrite);
+app.use('/read', routeRead);
 
 // Send every other request to the React app
 // Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 app.listen(PORT, () => {
