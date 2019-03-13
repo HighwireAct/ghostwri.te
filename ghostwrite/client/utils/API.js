@@ -1,12 +1,10 @@
 const axios = require("axios");
 
-export default {
-  createBlock: (pieceId, authorId, text, wordCount) => {
-    return axios.post('/testBlock', {
-      pieceId: pieceId,
-      authorId: authorId,
-      text: text,
-      wordCount: wordCount
-    });
+module.exports = {
+  createBlock: (blockData) => {
+    return axios.post('/read/testBlock', blockData);
+  },
+  createUser: (userData) => {
+    return axios.post('/register', userData);
   }
 }

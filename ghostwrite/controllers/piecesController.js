@@ -6,10 +6,7 @@ module.exports = {
       .find({ authorCount: { $lt: 5 }})
       .populate('Block')
       .sort({ updatedAt: -1 })
-      .then(dbModel => console.log(dbModel));
-      // .catch(err => res.status(402).json(err));
-  },
-  findAllFinished: (req, res) => {
-    db.Piece
+      .then(dbModel => console.log(dbModel))
+      .catch(err => console.error(err));
   }
 }
